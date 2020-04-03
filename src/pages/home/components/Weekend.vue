@@ -1,13 +1,14 @@
 <template>
 <div>
-    <div class="recommend-title">今日特惠</div>
+    <div class="weekend-title">热门度假</div>
     <ul>
         <li class="item border-bottom" v-for="item of list" :key="item.id">
-            <img class="item-img" :src="item.imgUrl" />
+            <div class="item-img-wrapper">
+                <img class="item-img" :src="item.imgUrl" />
+            </div>
             <div class="item-info">
                 <p class="item-title">{{item.title}}</p>
                 <p class="item-desc">{{item.desc}}</p>
-                <button class="item-button">查看详情</button>
             </div>
         </li>
     </ul>
@@ -16,13 +17,13 @@
 
 <script>
 export default {
-  name: 'HomeRecommend',
+  name: 'Homeweekend',
   props: {
     list: Array
   }
   // data () {
   //   return {
-  //     recommendList: [{
+  //     weekendList: [{
   //       id: '0001',
   //       imgUrl: 'http://imgs.qunarzz.com/p/tts2/1708/f7/9e813b99cb980c02.jpg_r_480x320x90_49733292.jpg',
   //       title: '杭州当地游',
@@ -44,26 +45,22 @@ export default {
 </script>
 
 <style scoped>
-.recommend-title{
+.weekend-title{
     margin-top: .2rem;
     line-height: .8rem;
     background: #eee;
     text-indent: .2rem;
 }
-.item{
+/* .item{
     overflow: hidden;
     display: flex;
     height: 1.9rem;
+} */
+.item-img-wrapper{
+    overflow: hidden;
 }
 .item-img{
-    /* width: 2rem; */
-    height: 2rem;
-    padding: .1rem;
-}
-.item-info{
-    flex: 1;
-    padding: .1rem;
-    min-width: 0;
+    width: 100%;
 }
 .item-title{
     line-height: .54rem;
@@ -72,13 +69,5 @@ export default {
 .item-desc{
     line-height: .4rem;
     color: #ccc;
-}
-.item-button{
-    line-height: .4rem;
-    margin-top: .16rem;
-    background: #ff9300;
-    padding: 0 .1rem;
-    border-radius: .06rem;
-    color: #fff;
 }
 </style>
