@@ -8,8 +8,14 @@ export default new Vuex.Store({
     city: '北京'
   },
   mutations: {
+    changeCity (state, city) {
+      state.city = city
+    }
   },
   actions: {
+    changeCity (ctx, city) {
+      ctx.commit('changeCity', city)
+    }
   },
   modules: {
   }
