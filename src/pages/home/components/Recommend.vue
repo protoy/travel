@@ -2,14 +2,14 @@
 <div>
     <div class="recommend-title">今日特惠</div>
     <ul>
-        <li class="item border-bottom" v-for="item of list" :key="item.id">
+        <router-link tag="li" class="item border-bottom" v-for="item of list" :key="item.id" :to="'/detail/' + item.id">
             <img class="item-img" :src="item.imgUrl" />
             <div class="item-info">
                 <p class="item-title">{{item.title}}</p>
                 <p class="item-desc">{{item.desc}}</p>
                 <button class="item-button">查看详情</button>
             </div>
-        </li>
+        </router-link>
     </ul>
 </div>
 </template>
@@ -20,26 +20,6 @@ export default {
   props: {
     list: Array
   }
-  // data () {
-  //   return {
-  //     recommendList: [{
-  //       id: '0001',
-  //       imgUrl: 'http://imgs.qunarzz.com/p/tts2/1708/f7/9e813b99cb980c02.jpg_r_480x320x90_49733292.jpg',
-  //       title: '杭州当地游',
-  //       desc: '纯玩江南3日 人间天堂'
-  //     }, {
-  //       id: '0002',
-  //       imgUrl: 'http://imgs.qunarzz.com/p/tts2/1708/f7/9e813b99cb980c02.jpg_r_480x320x90_49733292.jpg',
-  //       title: '杭州当地游',
-  //       desc: '纯玩江南3日 人间天堂'
-  //     }, {
-  //       id: '0003',
-  //       imgUrl: 'http://imgs.qunarzz.com/p/tts2/1708/f7/9e813b99cb980c02.jpg_r_480x320x90_49733292.jpg',
-  //       title: '杭州当地游',
-  //       desc: '纯玩江南3日 人间天堂'
-  //     }]
-  //   }
-  // }
 }
 </script>
 
