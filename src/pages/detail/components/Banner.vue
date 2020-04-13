@@ -1,21 +1,42 @@
 <template>
-    <div class="banner">
-        <img class="banner-img" src="" />
-        <div class="banner-info">
-            <div class="banner-title">
-                大连海洋世界（AAAA景区）
-            </div>
-            <div class="banner-number">
-                <span class="iconfont arrow-icon banner-icon">&#xe692;</span>
-                39
+    <div>
+        <div class="banner" @click="handleBannerClick">
+            <img class="banner-img" src="" />
+            <div class="banner-info">
+                <div class="banner-title">
+                    大连海洋世界（AAAA景区）
+                </div>
+                <div class="banner-number">
+                    <span class="iconfont arrow-icon banner-icon">&#xe692;</span>
+                    39
+                </div>
             </div>
         </div>
+        <common-gallary :imgs="imgs" v-show="showGallery" @close="handleGallaryClose"></common-gallary>
     </div>
 </template>
 
 <script>
+import CommonGallary from '../../../common/gallary/Gallary'
 export default {
-  name: 'DetailBanner'
+  name: 'DetailBanner',
+  data () {
+    return {
+      showGallary: false,
+      imgs: []
+    }
+  },
+  methods: {
+    handleBannerClick () {
+      this.showGallery = true
+    },
+    handleGallaryClose () {
+      this.showGallary = false
+    }
+  },
+  components: {
+    CommonGallary
+  }
 }
 </script>
 
